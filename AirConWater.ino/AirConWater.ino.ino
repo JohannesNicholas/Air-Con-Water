@@ -13,8 +13,8 @@
 const int trigPin = 9;
 const int echoPin = 10;
 float duration, distance;
-const float maxDistanceToWater = 12;
-const float minDistanceToWater = 4;
+const float maxDistanceToWater = 10;
+const float minDistanceToWater = 7;
 
 
 //Display
@@ -229,9 +229,9 @@ void loop() {
   
 
   //My pump logic
-  if (distance < minDistanceToWater && pumpCountdown == 0 && nTimeouts < 3) {
+  if (distance < minDistanceToWater && pumpCountdown == 0 && nTimeouts < 4) {
     //Turn on pump because water is to high
-    pumpCountdown = 100;
+    pumpCountdown = 700; //how many 10ths of a second, so 500 is 50 seconds
     turnPumpOn();
   }
 
